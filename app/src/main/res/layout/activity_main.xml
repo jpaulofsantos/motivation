@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/ll1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#8C4960"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/ivLeft"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="3"
+            android:src="@drawable/ic_baseline_self_improvement_24"/>
+
+        <ImageView
+            android:id="@+id/ivCenter"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="3"
+            android:src="@drawable/ic_baseline_tag_faces_24"/>
+
+        <ImageView
+            android:id="@+id/ivRight"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="3"
+            android:src="@drawable/ic_baseline_wb_sunny_24"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ll1"
+        android:text="Olá Kotlin!"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:layout_centerHorizontal="true"
+        android:padding="20dp"/>
+
+    <TextView
+        android:id="@+id/tv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv1"
+        android:text="Riscos devem ser corridos, porque o maior perigo é não arriscar nada!"
+        android:textSize="18sp"
+        android:padding="10dp"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="200dp"/>
+
+    <LinearLayout
+        android:id="@+id/ll2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv2"
+        android:paddingStart="120dp"
+        android:paddingEnd="120dp">
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="5dp"
+            android:layout_below="@id/tv2"
+            android:background="#8C4960"
+            android:layout_marginTop="24dp"/>
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nova Frase"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
+        android:backgroundTint="#8C4960"
+        android:layout_centerHorizontal="true"/>
+
+
+
+
+
+</RelativeLayout>
