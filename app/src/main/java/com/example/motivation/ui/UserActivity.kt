@@ -1,12 +1,13 @@
-package com.example.motivation
+package com.example.motivation.ui
 
 import android.content.Intent
-import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import com.example.motivation.databinding.ActivityMainBinding
+import com.example.motivation.utils.MotivationConstants
+import com.example.motivation.R
+import com.example.motivation.utils.SharedInformation
 import com.example.motivation.databinding.ActivityUserBinding
 
 lateinit var bindingUserActivity: ActivityUserBinding
@@ -19,6 +20,9 @@ class UserActivity : AppCompatActivity(), View.OnClickListener {
 
         bindingUserActivity.btnSalvar.setOnClickListener(this)
         supportActionBar?.hide()
+
+        checkUser()
+
 
     }
 
@@ -37,11 +41,21 @@ class UserActivity : AppCompatActivity(), View.OnClickListener {
 
             //salvando o nome para passar para MainActivity
             var sharedInformation = SharedInformation(this)
-            sharedInformation.saveName("nomeLogin", getNome)
+            sharedInformation.saveName(MotivationConstants.KEY.USER_NAME, getNome)
 
             //iniciando a MainActivity
             startActivity(Intent(this, MainActivity::class.java))
             //encerrando a UserActivity
+            finish()
+        }
+    }
+
+    private fun checkUser() {
+
+        var sharedInformation = SharedInformation(this).getName(MotivationConstants.KEY.USER_NAME)
+
+        if (sharedInformation != "") {
+            startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
     }

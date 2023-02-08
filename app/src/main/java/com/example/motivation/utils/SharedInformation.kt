@@ -1,9 +1,9 @@
-package com.example.motivation
-
+package com.example.motivation.utils
 import android.content.Context
 import android.content.SharedPreferences
 
 class SharedInformation(context: Context) {
+
     private val sharedNome: SharedPreferences = context.getSharedPreferences("Motivation", Context.MODE_PRIVATE)
 
     fun saveName(chave: String, nome: String) {
