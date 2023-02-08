@@ -17,6 +17,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         binding.ivLeft.setOnClickListener(this)
 
+        //buscando o nome de UserActivity e setando o nome no textView através da chave "nomeLogin"
+        binding.tvNome.text = SharedInformation(this).getName("nomeLogin") + "!"
+
 
     }
 
