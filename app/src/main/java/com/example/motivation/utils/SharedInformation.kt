@@ -11,6 +11,6 @@ class SharedInformation(context: Context) {
     }
 
     fun getName(chave: String): String {
-        return sharedNome.getString(chave, "") ?: ""
+        return sharedNome.getString(chave, "usuário") ?: ""
     }
 }

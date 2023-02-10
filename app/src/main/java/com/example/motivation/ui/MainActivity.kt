@@ -1,5 +1,6 @@
 package com.example.motivation.ui
 
+import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -29,9 +30,27 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         binding.ivLeft.setOnClickListener(this)
         binding.ivCenter.setOnClickListener(this)
         binding.ivRight.setOnClickListener(this)
+        binding.tvNome.setOnClickListener(this)
 
         //buscando o nome de UserActivity e setando o nome no textView através da chave "nomeLogin"
-        binding.tvNome.text = SharedInformation(this).getName(MotivationConstants.KEY.USER_NAME) + "!"
+
+    }
+
+    override fun onStart() {
+        super.onStart()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        showUserName()
+    }
+
+    override fun onPause() {
+        super.onPause()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
     }
 
     override fun onClick(view: View) {
@@ -41,7 +60,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             //binding.tv2.text = handlePhrase(categoryId)
             //handlePhrase2(categoryId)
             handlePhrase3(categoryId)
+        } else if (view.id == R.id.tvNome) {
+            startActivity(Intent(this, UserActivity::class.java))
         }
+    }
+
+    private fun showUserName() {
+        binding.tvNome.text = SharedInformation(this).getName(MotivationConstants.KEY.USER_NAME) + "!"
     }
 
     private fun handleFilter(id: Int) {

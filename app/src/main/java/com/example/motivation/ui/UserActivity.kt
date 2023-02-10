@@ -21,7 +21,7 @@ class UserActivity : AppCompatActivity(), View.OnClickListener {
         bindingUserActivity.btnSalvar.setOnClickListener(this)
         supportActionBar?.hide()
 
-        checkUser()
+        //checkUser()
 
 
     }
@@ -44,7 +44,9 @@ class UserActivity : AppCompatActivity(), View.OnClickListener {
             sharedInformation.saveName(MotivationConstants.KEY.USER_NAME, getNome)
 
             //iniciando a MainActivity
-            startActivity(Intent(this, MainActivity::class.java))
+
+            //startActivity(Intent(this, MainActivity::class.java)) com o onResume não é necess
+
             //encerrando a UserActivity
             finish()
         }
