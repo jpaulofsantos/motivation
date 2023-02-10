@@ -22,7 +22,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         supportActionBar?.hide()
         handleFilter(R.id.ivLeft)
-        binding.tv2.text = handlePhrase(categoryId)
+        //handlePhrase2(categoryId)
+        handlePhrase3(categoryId)
 
         binding.btnFrase.setOnClickListener(this)
         binding.ivLeft.setOnClickListener(this)
@@ -37,7 +38,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         if (view.id in listOf(R.id.ivLeft, R.id.ivCenter, R.id.ivRight)) {
             handleFilter(view.id)
         } else if (view.id == R.id.btnFrase) {
-            binding.tv2.text = handlePhrase(categoryId)
+            //binding.tv2.text = handlePhrase(categoryId)
+            //handlePhrase2(categoryId)
+            handlePhrase3(categoryId)
         }
     }
 
@@ -60,8 +63,21 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
+    //forma 1 de gerar a frase aleatória
     private fun handlePhrase(id: Int): String {
         var lista = PhraseMock()
-        return lista.list(id).description
+        return lista.ramdomPhrase(id).description
+    }
+
+    //forma 2 de gerar a frase aleatória
+    private fun handlePhrase2(id: Int) {
+       var lista = PhraseMock()
+        binding.tv2.text = lista.getPhrase(id)
+    }
+
+    //forma 3 de gerar a frase aleatoria com a condição do left icon filtrar a lista toda
+    private fun handlePhrase3(id: Int) {
+        var lista = PhraseMock()
+        binding.tv2.text = lista.ramdomPhraseAll(id).description
     }
 }

@@ -1,6 +1,7 @@
 package com.example.motivation.data
 
 import com.example.motivation.utils.MotivationConstants
+import kotlin.random.Random
 
 data class Phrase(val description: String, val categoryId: Int)
 
@@ -21,11 +22,29 @@ class PhraseMock {
         Phrase("Coragem é a resistência ao medo, domínio do medo, e não a ausência do medo.", MotivationConstants.FILTER.RIGHT),
     )
 
-    fun list(id: Int): Phrase {
+    fun ramdomPhrase(id: Int): Phrase {
         var newList = mutableListOf<Phrase>()
         for (i in listPhrase) {
             if (i.categoryId == id) {
                 newList.add(i)
+            }
+        }
+        return newList.random()
+    }
+
+    fun getPhrase(id: Int): String {
+        val lista = listPhrase.filter { it.categoryId == id }
+        val index = Random.nextInt(lista.size)
+        return lista[index].description
+    }
+
+    fun ramdomPhraseAll(id: Int): Phrase {
+        var newList = mutableListOf<Phrase>()
+        for (i in listPhrase) {
+            if (i.categoryId == id) {
+                newList.add(i)
+            } else if (id == 1) {
+                return listPhrase.random()
             }
         }
         return newList.random()
